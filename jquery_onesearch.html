@@ -33,7 +33,7 @@ $(document).ready(function(){
 		}
         var list_of_urls=[];
         for ( var i = 0; i <tab.length; i++ ) {
-            var temp=url+currentText+"&tab="+tab[i]+
+            var temp=url+encodeURIComponent(currentText)+"&tab="+tab[i]+
                 "&search_scope="+search_scope[i]+
                 "&sortby=rank&vid=01CALS_FUL&lang=en_US&offset=0"
             list_of_urls.push(temp);
