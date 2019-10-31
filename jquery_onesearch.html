@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OneSearch</title>
+<style>
+    .output{
+        padding: 10px;
+        min-height: 50px;
+        margin: 20px 0;
+        background-color: #f1f1f1;
+        border: 1px solid #e4e4e4;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	var text_list=['OneSearch Articles, Books & More',
+                       'Articles',
+                       'Books & Media (CSUF)',
+                       'Books & Media (all CSU)',
+                       'Course Reserves (CSUF)']    
+        
+    var url="https://csuf-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,"
+    var tab=['everything','articles','books_local','books_csu','course_reserves']
+	var search_scope=['EVERYTHING','articles','01CALS_FUL','01CALS','01CALS_FUL_CR']
+    $("#oneSearch").keyup(function(){
+        // Getting the current value of textarea
+        var currentText = $(this).val();   
+		if(currentText==null || currentText==undefined || currentText==""){
+			$(".output").empty("")
+			return
+		}
+        var list_of_urls=[];
+        for ( var i = 0; i <tab.length; i++ ) {
+            var temp=url+currentText+"&tab="+tab[i]+
+                "&search_scope="+search_scope[i]+
+                "&sortby=rank&vid=01CALS_FUL&lang=en_US&offset=0"
+            list_of_urls.push(temp);
+        } 
+		$(".output").empty("");
+		for ( var i = 0; i <tab.length; i++ ) {
+         $(".output").append("<p><a href="+list_of_urls[i]+">"+currentText+" "+text_list[i]+"</a></p>");
+		}
+    });
+});
+</script>
+</head>
+<body>
+    <form>
+        <input type="text" id="oneSearch" placeholder="Type something here..."/>
+    </form>
+    <div class="output"></div>
+</body>
+</html>                      
