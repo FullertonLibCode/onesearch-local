@@ -1,0 +1,7 @@
+&nbsp;{{a:230027}}
+<p><img id="onesearchlogo" src="_resources/images/onesearch.png" alt="one search logo" /></p>
+<div id="primoSearch">
+<div id="primoSearchBar">
+<div id="searchInputBar"><input id="searchBox" style="border: none;" type="text" /> <button id="primoSearchButton" style="width: 50px;" onkeyup="void(0)" onclick="void(0)"> <span class="basicSearch" id="basicSearch">{{a:229980}} </span></button></div>
+<button id="advancedSearch" class="advancedSearch" onkeyup="void(0)" onclick="void(0)">ADVANCED SEARCH</button></div>
+</div>
